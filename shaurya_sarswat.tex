@@ -1,98 +1,237 @@
-\documentclass[a4paper,10pt]{article}
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
 \usepackage{latexsym}
-\usepackage{enumitem}
-\usepackage{geometry}
+\usepackage[empty]{fullpage}
 \usepackage{titlesec}
-\usepackage[colorlinks=true, urlcolor=blue]{hyperref}
-\usepackage{fontawesome}
-\usepackage{xcolor}
-\usepackage{parskip}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
 
-\geometry{left=1.2cm, right=1.2cm, top=1.2cm, bottom=1.2cm}
 
-\definecolor{linkblue}{RGB}{0, 102, 204}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=linkblue,
-    urlcolor=linkblue
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
 }
 
-\titleformat{\section}{\large\bfseries\uppercase}{\thesection}{1em}{}
-\titlespacing{\section}{0pt}{10pt}{4pt}
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
 
-\pagestyle{empty}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \begin{document}
 
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
 \begin{center}
-    {\LARGE \textbf{Shaurya Sarswat}}\\
-    \vspace{2pt}
-    \faPhone~+91-9411071990 \quad
-    \faEnvelope~\href{mailto:shauryasarswat2024@gmail.com}{shauryasarswat2024@gmail.com} \quad
-    \faLinkedin~\href{https://linkedin.com/in/ShauryaSarswat}{LinkedIn} \quad
-    \faGithub~\href{https://github.com/ShauryaSarswat}{GitHub} \quad
-    \href{https://portfolio-silk-alpha-44.vercel.app}{Portfolio} \quad
-    \href{https://leetcode.com/ShauryaSarswat}{LeetCode}
+    {\Huge \scshape Shaurya Sarswat} \\ \vspace{1pt}
+    
+    \small \raisebox{-0.1\height}\faPhone\ +91-9411071990 ~ \href{mailto:shauryasarswat2024@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{shauryasarswat2024@gmail.com}} ~ 
+    \href{https://linkedin.com/in/ShauryaSarswat/}{\raisebox{-0.2\height}\faLinkedin\ \underline{LinkedIn}}  ~
+    \href{https://github.com/ShauryaSarswat}{\raisebox{-0.2\height}\faGithub\ \underline{Github}} ~
+    \href{https://portfolio-silk-alpha-44.vercel.app}
+    {\raisebox{-0.2\height}\faUser\ \underline{Portfolio}} ~
+    \href{https://leetcode.com/ShauryaSarswat/}
+    {\raisebox{-0.2\height}\faCode\ \underline{LeetCode}}
+    \vspace{-8pt}
 \end{center}
 
-\vspace{5pt}
 
-\section*{Education}
-\textbf{Dr. A.P.J. Abdul Kalam Technical University} \hfill July 2020 – July 2024 \\
-Bachelor of Technology in Computer Science \hfill CGPA: 8.43
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Dr. A.P.J. Abdul Kalam Technical University}{July 2020 -- July 2024}
+      {Bachelor of Technology in Computer Science}{CGPA : 8.46}
+  \resumeSubHeadingListEnd
 
-\section*{Experience}
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+    {Curelink}{June 2024 -- Present}{Business Analyst}{Gurugram, India}
+    \resumeItemListStart
+        \resumeItem{Extracted, analyzed, and processed large datasets using Metabase, PostgreSQL, and Excel to generate actionable insights, contributing to a 10\% month-over-month revenue increase by optimizing lead management and operational strategies}
+        \resumeItem{Monitored and analyzed key business metrics, collaborating with cross-functional teams (including internal and external partners) to identify and implement process improvements, resulting in a 15\% increase in lead generation}
+        \resumeItem{Developed and automated real-time dashboards in Metabase, empowering stakeholders with actionable business insights, and driving improvements such as increasing onboarding SOP completion from 30\% in August to 57\% in March}
+        \resumeItem{Authored Product Requirement Documents (PRDs) for key tech implementations, including the automation of lead assignment processes, which reduced lead wait time by 80\%, and the creation of small standee materials that boosted SOP step completion by 21\%}
+        \resumeItem{Led the quality assurance process for the Field Sales team, analyzing engagement metrics and providing data-driven training interventions that increased revenue by 10\% month-over-month}
+        \resumeItem{Led the development and optimization of the onboarding SOP, increasing its effectiveness from 30\% completion in August to 57\% in March by leveraging real-time dashboards and analytics to guide process improvements}
+        \resumeItem{Improved lead quality by reducing false inside sales leads from 17\% in August to 9\% in October, while increasing lead volume by 15\% in November through continuous process optimization}
+        \resumeItem{\textbf{Technologies : PostgreSQL, Metabase, Excel, Data Analytics}}
+    \resumeItemListEnd
+    \resumeSubheading
+      {Provis Technologies Pvt. Ltd.}{July 2023 -- September 2023}
+      {Full-Stack Development Intern}{Jaipur, India}
+      \resumeItemListStart
+        \resumeItem{Developed a robust
+ back-end using the NodeJs / ExpressJs to serve all the end-points for the blog post web application}
+        \resumeItem{Strengthened a highly interactive and scalable UI employing ReactJs and subsequently increasing user retention by 30\%}
+        \resumeItem{Collaborated effectively within cross-functional teams to achieve project goals and foster a dynamic work environment}
+        \resumeItem{\textbf{Technologies : MongoDB, ExpressJs, ReactJs, NodeJs}}
+        \vspace{5px}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+%
+%-----------PROJECTS-----------
 
-\textbf{Curelink} \hfill Jun 2024 – Present \\
-\textit{Business Analyst} – Gurugram, India
-\begin{itemize}[itemsep=2pt, leftmargin=0pt]
-    \item Extracted and analyzed data using Metabase, PostgreSQL, and Excel to generate actionable insights, contributing to a 10\% month-over-month revenue increase.
-    \item Built automated dashboards in Metabase to track onboarding SOPs, raising completion from 30\% to 57\%.
-    \item Authored PRDs to automate lead assignment and streamline onboarding (e.g., reducing lead wait time by 80\%).
-    \item Conducted QA for field sales, delivering training that led to 10\% MoM revenue growth.
-    \item Reduced false leads from 17\% to 9\% and increased lead volume by 15\% via continuous optimization.
-\end{itemize}
+\section{Projects}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{\href{https://www.kaggle.com/code/shauryasarswat/walmart-data-regression}{\underline{Walmart Data Regression}}} $|$ \emph{Python, Machine Learning, Data Analytics, NumPy, Pandas, Matplotlib, Scikit-Learn}}{}
+        \vspace{-10pt}
+          \resumeItemListStart
+            \resumeItem{Analyzed weekly sales data from Walmart stores in the USA using regression analysis techniques}
+            \resumeItem{Deployed and maintained a highly-rated notebook on Kaggle, garnering over 1000 views and recognition as one of the top-ranked notebooks}
+            \resumeItem{Provided valuable insights into sales trends and patterns, contributing to informed decision-making processes}
+          \resumeItemListEnd
+          \vspace{-13pt}
+      \resumeProjectHeading
+      {\textbf{\href{https://github.com/ShauryaSarswat/Vetan}{\underline{Vetan}}}  $|$ \emph{Python, Machine Learning, Data Analytics, Streamlit, NumPy, Pandas, Matplotlib, Scikit-Learn}}{}
+        \vspace{-13pt}
+          \resumeItemListStart
+            \resumeItem{Created an application for predicting software engineer salaries based on 5 co-related parameters}
+            \resumeItem{Retrieved the salary survey dataset from stack overflow and conducted preprocessing and exploratory data analysis}
+            \resumeItem{Applied Random Forest algorithm over dataset achieving 95.7\% accuracy and constructed front-end using streamlit}
+          \resumeItemListEnd
+          \vspace{-1pt}
+    \resumeSubHeadingListEnd
+\vspace{-12pt}
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     Python, SQL, JavaScript, PostgreSQL, MySQL, Excel, Metabase, Tableau, Data Analytics, Machine Learning, REST API, Git, Linux, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, Jupyter Notebooks, Data Visualization
+    }}
+ \end{itemize}
+ \vspace{-18pt}
 
-\textbf{Provis Technologies Pvt. Ltd.} \hfill Jul 2023 – Sep 2023 \\
-\textit{Full-Stack Development Intern} – Jaipur, India
-\begin{itemize}[itemsep=2pt, leftmargin=0pt]
-    \item Developed REST APIs using Node.js/Express.js for a blog web app.
-    \item Built a highly interactive UI with React.js, improving user retention by 30\%.
-    \item Tech stack: MongoDB, Express.js, React.js, Node.js.
-\end{itemize}
 
-\section*{Projects}
+%-----------INVOLVEMENT---------------
+\section{Awards and Achievements}
+    \resumeSubHeadingListStart
+    \resumeItem{}
+            \vspace{5px}
+            \resumeItemListStart
+                \resumeItem{Qualified for Meta Hacker Cup 2022 with a rank of 5363 in the Qualifiers and achieved rank of 6019 in Round 1}
+                \resumeItem{Achieved the highest AIR149 in the monthly Coderush Contest organized by Newton School}
+                \resumeItem{Ranked 1283 out of 90,000+ participants in the PrepSAT Hackathon hosted by PrepInsta}
+                \resumeItem{Mastered 1000+ DSA problems on various platforms and secured 8 Leetcode badges.}
+               
+                
+            \resumeItemListEnd
+    \resumeSubHeadingListEnd
 
-\textbf{Walmart Data Regression} \\
-\textit{Python, ML, NumPy, Pandas, Scikit-learn, Matplotlib}
-\begin{itemize}[itemsep=2pt, leftmargin=0pt]
-    \item Analyzed Walmart sales data using regression and deployed the notebook on Kaggle (1000+ views).
-    \item Provided actionable insights on sales trends for business decisions.
-\end{itemize}
-
-\textbf{Vetan} \\
-\textit{Python, ML, Streamlit, Pandas, Scikit-learn}
-\begin{itemize}[itemsep=2pt, leftmargin=0pt]
-    \item Built a salary prediction app based on Stack Overflow survey.
-    \item Achieved 95.7\% accuracy using Random Forest and deployed the front end with Streamlit.
-\end{itemize}
-
-\section*{Technical Skills}
-Python, SQL, JavaScript, PostgreSQL, MySQL, Excel, Metabase, Tableau, Data Analytics, Machine Learning, REST API, Git, Linux, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, Jupyter Notebooks, Data Visualization
-
-\section*{Awards and Achievements}
-\begin{itemize}[itemsep=2pt, leftmargin=0pt]
-    \item Qualified Meta Hacker Cup 2022 – Rank: 5363 (Qualifiers), 6019 (Round 1)
-    \item AIR 149 in Newton School Coderush Contest
-    \item Rank 1283 among 90,000+ in PrepSAT Hackathon (PrepInsta)
-    \item Solved 1000+ DSA problems and earned 8 LeetCode badges
-\end{itemize}
-
-\section*{Extracurriculars}
-\textbf{MITGI Voyager – Chief Editor (2023–2024)}
-\begin{itemize}[itemsep=2pt, leftmargin=0pt]
-    \item Led a 12-member editorial team and published 3 annual editions.
-    \item Interviewed 20+ candidates and supervised magazine content development.
-\end{itemize}
-
+\section{Extracurriculars}
+\resumeSubHeadingListStart
+    \resumeItem{MITGI Voyager | Chief Editor -- 2023-2024}
+            \vspace{1px}
+            \resumeItemListStart
+                \resumeItem{Managed a team of 12 content and section editors, overseeing the interview process and developing magazine content}
+                \resumeItem{Published Magazine for 2021, 2022 and 2023 edition as Section Editor and Chief Editor of Editorial Board respectively}
+                \resumeItem{Interviewed 20+ Candidates for the roles of section editors and content designers, and performed submission reviews}
+            \resumeItemListEnd
+        
+    \resumeSubHeadingListEnd
 \end{document}
